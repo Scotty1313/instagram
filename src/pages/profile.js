@@ -1,4 +1,4 @@
-import { useParams, useHistory } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { getUserByUsername } from '../services/firebase';
 import * as ROUTES from '../constants/routes';
@@ -8,7 +8,7 @@ import UserProfile from '../components/profile';
 export default function Profile() {
   const { username } = useParams();
   const [user, setUser] = useState(null);
-  const history = useHistory();
+  const history = useNavigate();
 
   useEffect(() => {
     async function checkUserExists() {
